@@ -20,6 +20,11 @@ $(function(){
 		'lastName':'Doe'
 	});
 	
+	var emp2 = new Employee({
+		'firstName':'James',
+		'lastName':'Bond'
+	});
+	
 	//console.log(emp1.get('firstName'));
 	
 	
@@ -28,13 +33,7 @@ $(function(){
 	});
 	
 	var allEmployees = new EmployeeCollection();
-	allEmployees.add(emp1);
-	
-	//console.log('allEmployees.length : ', allEmployees.length);
-	
-	//console.log('emp1.cid',emp1.cid);
-	
-	
+	allEmployees.add([emp1,emp2]);
 	
 	var EmployeeView = Backbone.View.extend({
 		tagName:  'li',
@@ -65,15 +64,29 @@ $(function(){
 	//emp1View.render();
 	//console.log(emp1View.$el.html());
 	
-	var EmployeeList = Backbone.View.extend({
-		el:'#allEmployees',
-		initialize:function(){
+	var EmployeeListView = Backbone.View.extend({
+		
+		render:function(){
+			console.log(this.model);
+			_.each(this.model.models, function (element,index,list){
+				
+				//console.log(element);
+				//var emp1 = new EmployeeView({model:element});
+				
+				this.$el.append( (new EmployeeView({model:element})).render().el );
+				
+			}, this);
 			
-		},
+			return this;
+		}
 		
 	});
 	
+	var allEmployeesView = new EmployeeListView({
+		el:'#allEmployees',
+		model:allEmployees
+	});
+	
+	console.log(allEmployeesView.render());
 
 });
-
-
