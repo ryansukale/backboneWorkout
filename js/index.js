@@ -103,6 +103,56 @@ $(function(){
 		Person.set({name: 'Alex'});
 	}
 	
-	experiment2();
+	function experiment3(){
+		var basicModelProps = {
+			defaults: {
+			  name: 'defaultValue'
+			}
+		};
+
+		var BasicModel = Backbone.Model.extend(basicModelProps);
+
+		var model1 = new BasicModel({name:'model1'});
+		var model2 = new BasicModel({name:'model2'});
+
+		var basicCollectionProps = {
+		  model: BasicModel,
+		  initialize: function(){
+		  	console.log('initializing');
+	  		this.on({
+		  		"add":this.modelAdded,
+		  		"remove":this.modelRemoved
+				});
+
+				// log a message if a model in the collection changes
+				this.on("change:name", function(modelItem,updatedValue) {
+				  console.log("New value of model attribute " + updatedValue);
+				});
+
+				// log a message if a model in the collection changes
+				this.on("change", function(updatedModel) {
+				  //console.log(updatedModel.cid);
+				});
+
+		  },
+		  modelAdded:function(modelItem){
+				console.log(modelItem.get('name'));
+			},
+		  modelRemoved:function(modelItem){
+				console.log('model removed', modelItem.get('name'));
+			}
+		};
+
+		var BasicCollection = Backbone.Collection.extend(basicCollectionProps);
+
+		var bc = new BasicCollection();
+		bc.add(model1);
+		bc.add(model2);
+		model1.set({'name':'billy'});
+		console.log(bc.remove(bc.get('c1')));
+		console.log(bc.length);
+	}
+
+	experiment3();
 
 });
