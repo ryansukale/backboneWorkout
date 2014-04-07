@@ -1,6 +1,8 @@
-//Hash of basic model properties set to either empty values or functions.
-//Use this to save yourself keystrokes
-//Add/remove properties as per your discretion to create new model types
+/* 
+	Hash of basic model properties set to either empty values or functions. 
+	Use this template to save yourself keystrokes
+	Add/remove properties as per your discretion to create new model types
+*/
 var basicProps = {
 	defaults: {
 	  //attrName: defaultValue

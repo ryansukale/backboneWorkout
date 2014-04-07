@@ -1,7 +1,7 @@
 
 var basicViewProps = {
 
-  //To create a new dom element, set one or more of the below three
+  /* To create a new dom element, set one or more of the below three */
   //tagName:  'div', //(required) Backbone defaults it to div
   //className: 'container', //(optional)
   //id:  'id', //(optional)
@@ -9,7 +9,7 @@ var basicViewProps = {
   //To select an existing dom element
   //el: 'selector',
 
-  //Cache the template
+  /* Cache the template */
   template: _.template( $("templateSelector") ),
 
   events: {
