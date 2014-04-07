@@ -1,24 +1,26 @@
 /* 
 	Hash of basic model properties set to either empty values or functions. 
 	Use this template to save yourself keystrokes
-	Add/remove properties as per your discretion to create new model types
+	Uncomment methods/properties as per your discretion to create new model types
 */
-var basicProps = {
+var basicModelProps = {
 	defaults: {
 	  //attrName: defaultValue
 	},
 
 	initialize: function (){
-		this.on('invalid',function(){
-			//Do something
+		this.on({
+			//'invalid':invalidModel
 		});
 	},
-
-	validate: function(attributes){
+	validate: function(attributes){ //Fires just before the new value is set in the model. Attributes has contains the new values
     //if(attributes.attrName === undefined){
     //    return "An attribute has not been set.";
     //}
-  }
+  },
+  //invalidModel:function(){
+  //	//Do something
+  //}
 };
 
-//var SampleModel = Backbone.Model.extend(basicProps);
+//var BasicModel = Backbone.Model.extend(basicModelProps);
