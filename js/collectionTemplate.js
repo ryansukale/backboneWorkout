@@ -1,6 +1,7 @@
 /* 
-	Hash of basic collection properties set to either empty values or functions. 
-	Add/remove properties as per your discretion to create new collection types
+	Hash of basic collection properties set to either empty values or functions.
+	Use this template to save yourself keystrokes when creating models
+	Uncomment methods/properties as per your discretion to create new collection types
 */
 var basicCollectionProps = {
 	//model: Todo,
@@ -12,12 +13,13 @@ var basicCollectionProps = {
 			'add':this.modelAdded
 		});
 	},
-	modelChanged:function(updatedModel){
-		//console.log(updatedModel.cid);
-	},
-	modelAttrChanged:function(updatedModel,newAttrValue){
-		//console.log(updatedModel.cid);
-	},
+	//modelChanged:function(updatedModel){
+	//	//console.log(updatedModel.cid);
+	//},
+
+	//modelAttrChanged:function(updatedModel,newAttrValue){
+	//	//console.log(updatedModel.cid);
+	//},
 	modelRemoved:function(modelItem){
 		//console.log(modelItem.get('attrName'));
 	},
