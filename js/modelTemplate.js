@@ -1,6 +1,6 @@
 /* 
 	Hash of basic model properties set to either empty values or functions. 
-	Use this template to save yourself keystrokes
+	Use this template to save yourself keystrokes when creating models
 	Uncomment methods/properties as per your discretion to create new model types
 */
 var basicModelProps = {
